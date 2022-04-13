@@ -62,20 +62,20 @@ app.use(session(sessionConfig))
 app.use(flash())
 app.use(helmet());
 
-
+app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 const scriptSrcUrls = [
-    "https://stackpath.bootstrapcdn.com/",
-    "https://api.tiles.mapbox.com/",
-    "https://api.mapbox.com/",
+    "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js",
+    "https://*.tiles.mapbox.com",
+    "https://api.mapbox.com",
     "https://kit.fontawesome.com/",
     "https://cdnjs.cloudflare.com/",
     "https://cdn.jsdelivr.net",
 ];
 const styleSrcUrls = [
     "https://kit-free.fontawesome.com/",
-    "https://stackpath.bootstrapcdn.com/",
-    "https://api.mapbox.com/",
-    "https://api.tiles.mapbox.com/",
+    "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css",
+    "https://api.mapbox.com",
+    "https://*.tiles.mapbox.com",
     "https://fonts.googleapis.com/",
     "https://use.fontawesome.com/",
 ];
@@ -108,6 +108,7 @@ app.use(
 );
 
 
+chrome://flags/#cookies-without-same-site-must-be-secure
 
 
 //passport middleware
