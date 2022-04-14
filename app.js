@@ -15,6 +15,9 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 
+const MongoStore = require('connect-mongo');
+
+
 const mongoSanitize = require('express-mongo-sanitize');
 
 
@@ -46,7 +49,17 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname,'public')));
 app.use(mongoSanitize());
 
+const store =  MongoStore.create({
+    mongoUrl: process.env.MONGO_ATLAS,
+    secret: 'thisshouldbeabettersecrest',
+    touchAfter: 24 * 60 * 60
+})
+
+store.on("error", function(e) {
+    console.log("store error", e)
+})
 const sessionConfig = {
+    store: store,
     name:'session',
     secret: 'thisshouldbeabettersecrest',
     resave: false,
