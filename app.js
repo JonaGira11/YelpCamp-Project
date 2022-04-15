@@ -50,19 +50,23 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname,'public')));
 app.use(mongoSanitize());
 
+const secret = process.env.SECRET || 'thisshouldbeabettersecrest';
+
 const store =  MongoStore.create({
     mongoUrl: process.env.MONGO_ATLAS,
-    secret: 'thisshouldbeabettersecrest',
+    secret,
     touchAfter: 24 * 60 * 60
 })
 
 store.on("error", function(e) {
     console.log("store error", e)
 })
+
+
 const sessionConfig = {
     store: store,
     name:'session',
-    secret: 'thisshouldbeabettersecrest',
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
