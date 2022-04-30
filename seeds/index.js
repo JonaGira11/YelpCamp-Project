@@ -41,8 +41,8 @@ images:  [
       filename: 'yelpcamp/nx3gnhwe4mhrtszyxjws',
     },
     {
-      url: 'https://res.cloudinary.com/fjdsalk/image/upload/v1649450320/yelpcamp/dcvoeaggqpkpdw8pzjhx.avif',
-      filename: 'yelpcamp/dcvoeaggqpkpdw8pzjhx',
+      url: 'https://res.cloudinary.com/fjdsalk/image/upload/v1649450321/yelpcamp/era3gydsw149wpg7lp7k.avif',
+      filename: 'yelpcamp/era3gydsw149wpg7lp7k',
     }
   ]
         })
